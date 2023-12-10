@@ -86,24 +86,21 @@ function KanbanBoard() {
     return Math.floor(Math.random() * 10001);
   }
 
-  const [activeColumn, setActiveColumn] = useState<Column | null>(null);
-  const [activeTask, setActiveTask] = useState<Task | null>(null);
-
+ 
   function onDragStart(event: DragStartEvent) {
     if (event.active.data.current?.type === "Column") {
-      setActiveColumn(event.active.data.current.column);
+      
       return;
     }
 
     if (event.active.data.current?.type === "Task") {
-      setActiveTask(event.active.data.current.task);
+      
       return;
     }
   }
 
   function onDragEnd(event: DragEndEvent) {
-    setActiveColumn(null);
-    setActiveTask(null);
+   
 
     const { active, over } = event;
     if (!over) return;
